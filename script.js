@@ -1,44 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const isHomePage = document.body.classList.contains('home-page');
     const loadingScreen = document.getElementById('loading');
     const mainContent = document.querySelector('main');
-    const glassmorphismBox = document.getElementById('glassmorphism-box');
 
-    // Ensure loading screen is visible and main content is hidden initially
-    loadingScreen.style.display = 'flex';
-    mainContent.style.opacity = '0';
-    mainContent.style.display = 'block'; // Change this from 'none' to 'block'
+    if (isHomePage && loadingScreen) {
+        // Loading screen logic for home page
+        loadingScreen.style.display = 'flex';
+        mainContent.style.opacity = '0';
 
-    // Simulate loading time
-    setTimeout(() => {
-        // Fade out loading screen
-        loadingScreen.style.opacity = '0';
-        loadingScreen.style.transition = 'opacity 0.5s ease';
-
-        // After loading screen fades out, hide it and show main content
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-            mainContent.style.opacity = '1';
-            mainContent.style.transition = 'opacity 0.5s ease';
-            document.body.classList.add('loaded');
-        }, 500);
-    }, 2000);  // Adjust this time as needed
+            loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
 
-    // Smooth scrolling and glassmorphism box animation for navigation links
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.opacity = '1';
+                mainContent.style.transition = 'opacity 0.5s ease';
+                document.body.classList.add('loaded');
+            }, 500);
+        }, 2000);  // Adjust this time as needed
+    } else {
+        // For other pages, hide loading screen and show content immediately
+        if (loadingScreen) loadingScreen.style.display = 'none';
+        if (mainContent) mainContent.style.opacity = '1';
+        document.body.classList.add('loaded');
+    }
+
+    // Update active navigation item
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('nav a').forEach(a => {
+        if (a.getAttribute('href') === currentPage) {
+            a.classList.add('active');
+        } else {
+            a.classList.remove('active');
+        }
+    });
+
+    // Smooth scrolling for same-page links
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            
+            // Check if the link is to an external page
+            if (targetId.includes('.html')) {
+                // Allow default link behavior for external pages
+                return;
+            }
 
-            const targetId = this.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
 
             if (targetElement) {
-                // Animate glassmorphism box
-                glassmorphismBox.style.height = '100%';
-                setTimeout(() => {
-                    glassmorphismBox.style.height = '80px';
-                }, 600);
-
-                // Scroll to target section
                 targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
@@ -51,5 +63,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add this line outside of the event listener
 console.log('Script file loaded');
