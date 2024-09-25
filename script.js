@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 mainContent.style.transition = 'opacity 0.5s ease';
                 document.body.classList.add('loaded');
             }, 500);
-        }, 2000);  // Adjust this time as needed
+        }, 3000);  // Increased to 3 seconds to show the animation
     } else {
         // For other pages, hide loading screen and show content immediately
         if (loadingScreen) loadingScreen.style.display = 'none';
