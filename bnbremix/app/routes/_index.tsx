@@ -21,18 +21,19 @@ export default function Index() {
     return <LoadingScreen />;
   }
 
+  const homeHeader = <h1 className="site-title">BANOBA</h1>;
+
   return (
-    <Layout>
-      <h1>BANOBA</h1>
+    <Layout header={homeHeader}>
       <p className="subtitle">{t.subtitle}</p>
       <p>{t.description}</p>
       <p>{t.servicesList}</p>
-      <p>
-        <a href="https://www.linkedin.com/company/banoba" target="_blank" rel="noopener noreferrer">LinkedIn</a> • 
-        <a href="https://www.instagram.com/banoba_sustainability" target="_blank" rel="noopener noreferrer">Instagram</a> • 
-        <a href="https://twitter.com/banoba_sustain" target="_blank" rel="noopener noreferrer">X</a> • 
-        {t.reachUs} <a href="mailto:info@banoba.com">info@banoba.com</a>
-      </p>
+      <div className="social-links">
+        <a href="https://www.linkedin.com/company/banoba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.instagram.com/banoba_sustainability" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://twitter.com/banoba_sustain" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+      <p>{t.reachUs} <a href="mailto:info@banoba.com">info@banoba.com</a></p>
     </Layout>
   );
 }

@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from '@remix-run/react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../utils/translations';
 
 interface LayoutProps {
   children: React.ReactNode;
+  header?: React.ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, header }: LayoutProps) {
   const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { language, setLanguage } = useLanguage();
+  const t = translations[language];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const isActive = (path: string) => {
     return location.pathname === path ? 'active' : '';
@@ -31,31 +35,65 @@ export default function Layout({ children }: LayoutProps) {
     setLanguage(language === 'EN' ? 'TH' : 'EN');
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleDarkModeToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Dark mode toggled');
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const handleLanguageToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Language toggled');
+    setLanguage(language === 'EN' ? 'TH' : 'EN');
+  };
+
   return (
-    <div className="container fade-in">
-      <header>
-        <nav>
-          <div className="nav-links">
-            <Link to="/" className={isActive('/')}>HOME</Link>
-            <Link to="/about" className={isActive('/about')}>ABOUT</Link>
-            <Link to="#services" className={isActive('#services')}>SERVICES</Link>
-            <Link to="#contact" className={isActive('#contact')}>CONTACT</Link>
-          </div>
-          <div className="nav-controls">
-            <button onClick={toggleDarkMode} aria-label="Toggle dark mode">
-              {isDarkMode ? '🌙' : '☀️'}
+    <div className="fade-in">
+      <div className="container">
+        <header>
+          <nav>
+            <button className="menu-toggle" onClick={toggleMenu}>
+              ☰
             </button>
-            <button onClick={toggleLanguage} aria-label="Toggle language">
-              {language}
-            </button>
-          </div>
-        </nav>
-      </header>
-      <main>{children}</main>
-      <footer>
-        <p>Everything we do is for a sustainable future. 🌱</p>
-        <p>&copy; 2024 BANOBA. All rights reserved.</p>
-      </footer>
+            <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+              <Link to="/" className={isActive('/')} onClick={() => setIsMenuOpen(false)}>{t.home}</Link>
+              <Link to="/about" className={isActive('/about')} onClick={() => setIsMenuOpen(false)}>{t.about}</Link>
+              <Link to="#services" className={isActive('#services')} onClick={() => setIsMenuOpen(false)}>{t.services}</Link>
+              <Link to="#contact" className={isActive('#contact')} onClick={() => setIsMenuOpen(false)}>{t.contact}</Link>
+            </div>
+            <div className="nav-controls">
+              <button 
+                onClick={handleDarkModeToggle} 
+                aria-label="Toggle dark mode"
+                className="control-button"
+              >
+                {isDarkMode ? '🌙' : '☀️'}
+              </button>
+              <button 
+                onClick={handleLanguageToggle} 
+                aria-label="Toggle language"
+                className="control-button"
+              >
+                {language}
+              </button>
+            </div>
+          </nav>
+        </header>
+        <main>
+          {header}
+          {children}
+        </main>
+        <footer>
+          <p>{t.footerText} 🌱</p>
+          <p>&copy; 2024 BANOBA. {t.rights}</p>
+        </footer>
+      </div>
     </div>
   );
 }
