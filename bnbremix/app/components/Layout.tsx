@@ -39,20 +39,6 @@ export default function Layout({ children, header }: LayoutProps) {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleDarkModeToggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Dark mode toggled');
-    setIsDarkMode(!isDarkMode);
-  };
-
-  const handleLanguageToggle = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('Language toggled');
-    setLanguage(language === 'EN' ? 'TH' : 'EN');
-  };
-
   return (
     <div className="fade-in">
       <div className="container">
@@ -68,18 +54,10 @@ export default function Layout({ children, header }: LayoutProps) {
               <Link to="#contact" className={isActive('#contact')} onClick={() => setIsMenuOpen(false)}>{t.contact}</Link>
             </div>
             <div className="nav-controls">
-              <button 
-                onClick={handleDarkModeToggle} 
-                aria-label="Toggle dark mode"
-                className="control-button"
-              >
+              <button onClick={toggleDarkMode} aria-label="Toggle dark mode">
                 {isDarkMode ? '🌙' : '☀️'}
               </button>
-              <button 
-                onClick={handleLanguageToggle} 
-                aria-label="Toggle language"
-                className="control-button"
-              >
+              <button onClick={toggleLanguage} aria-label="Toggle language">
                 {language}
               </button>
             </div>
