@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'FUTURA CONDENSED BOLD';
+    src: url('/FuturaCondensedBold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
