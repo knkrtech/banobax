@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react';
 import { LinksFunction } from '@remix-run/node';
 
@@ -14,6 +15,13 @@ export const links: LinksFunction = () => [
 ];
 
 export default function App() {
+  useEffect(() => {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+  }, []);
+
   return (
     <html lang="en">
       <head>
