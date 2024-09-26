@@ -1,23 +1,28 @@
 import Layout from '../components/Layout';
+import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../utils/translations';
 
 export default function About() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <Layout>
       <section id="about">
-        <h1>About BANOBA</h1>
-        <p className="subtitle">Our Mission and Vision</p>
+        <h1>{t.aboutTitle}</h1>
+        <p className="subtitle">{t.missionVision}</p>
       </section>
       <section id="mission">
-        <h2>Our Mission</h2>
-        <p>At BANOBA, we are committed to developing innovative strategies for a sustainable future. Our mission is to provide cutting-edge consulting services that help businesses and organizations minimize their environmental impact while maximizing their efficiency and profitability.</p>
+        <h2>{t.ourMission}</h2>
+        <p>{t.missionText}</p>
       </section>
       <section id="vision">
-        <h2>Our Vision</h2>
-        <p>We envision a world where sustainable practices are seamlessly integrated into every aspect of business and society. BANOBA aims to be at the forefront of this transformation, leading the way in sustainable consulting and inspiring positive change on a global scale.</p>
+        <h2>{t.ourVision}</h2>
+        <p>{t.visionText}</p>
       </section>
       <section id="team">
-        <h2>Our Team</h2>
-        <p>BANOBA is powered by a diverse team of experts in environmental science, sustainability, and business strategy. Our consultants bring a wealth of experience and a passion for creating a greener future.</p>
+        <h2>{t.ourTeam}</h2>
+        <p>{t.teamText}</p>
       </section>
     </Layout>
   );

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Links, LiveReload, Meta, Outlet, Scripts } from '@remix-run/react';
 import { LinksFunction } from '@remix-run/node';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: '/styles/global.css' },
@@ -31,7 +32,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <LanguageProvider>
+          <Outlet />
+        </LanguageProvider>
         <Scripts />
         <LiveReload />
       </body>

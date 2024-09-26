@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from '@remix-run/react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +9,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [language, setLanguage] = useState('EN');
+  const { language, setLanguage } = useLanguage();
 
   const isActive = (path: string) => {
     return location.pathname === path ? 'active' : '';
