@@ -10,7 +10,7 @@
     --primary-color: #2E2E2E;
     --secondary-color: #7DA7D9;
     --highlight-color: #A8D5BA;
-    --background-color: #F9FAFB;
+    --background-color: #FFFFFF;
 }
 
 body {
@@ -18,9 +18,9 @@ body {
     line-height: 1.8;
     color: var(--primary-color);
     background-color: var(--background-color);
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 60px 20px;
     text-align: center;
     font-size: 18px;
 }
@@ -33,17 +33,17 @@ h1, h2, h3 {
 
 h1 {
     font-size: 3.5rem;
-    margin: 0 0 20px;
+    margin: 0 0 30px;
 }
 
 h2 {
     font-size: 2.5rem;
-    margin: 40px 0 20px;
+    margin: 50px 0 25px;
 }
 
 .subtitle {
     font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: var(--secondary-color);
 }
 
@@ -58,36 +58,35 @@ a:hover {
 }
 
 header {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 nav a {
     font-family: 'FUTURA CONDENSED BOLD', sans-serif;
     color: var(--primary-color);
     font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 20px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
 }
 
 nav a:hover, nav a.active {
-    background-color: var(--highlight-color);
-    color: var(--primary-color);
+    border-bottom-color: var(--highlight-color);
 }
 
 section {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 footer {
-    margin-top: 80px;
-    padding-top: 20px;
+    margin-top: 100px;
+    padding-top: 30px;
     border-top: 1px solid var(--highlight-color);
     font-size: 0.9em;
     color: var(--secondary-color);
@@ -116,11 +115,14 @@ footer {
 }
 
 .loader {
+    font-family: 'FUTURA CONDENSED BOLD', sans-serif;
+    font-size: 2rem;
+    color: var(--highlight-color);
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.8); opacity: 0.5; }
-    50% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(0.8); opacity: 0.5; }
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
 }
