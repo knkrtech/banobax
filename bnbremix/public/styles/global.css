@@ -117,7 +117,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--background-color);
+    background-color: #A8D5BA;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,15 +125,26 @@ footer {
 }
 
 .loader {
-    font-family: 'FUTURA CONDENSED BOLD', sans-serif;
-    font-size: 3rem;
-    color: var(--highlight-color);
-    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    display: flex;
+    gap: 20px;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.98); }
+.leaf {
+    font-size: 2rem;
+    animation: bounce 0.6s infinite alternate;
+}
+
+.leaf:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.leaf:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
 }
 
 /* Subtle background texture */
