@@ -13,7 +13,7 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="container">
+    <div className="container fade-in">
       <header>
         <nav>
           <Link to="/" className={isActive('/')}>HOME</Link>
