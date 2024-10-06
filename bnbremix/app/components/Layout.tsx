@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from '@remix-run/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
+import Header from './Header';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,15 +9,9 @@ interface LayoutProps {
 }
 
 export default function Layout({ children, header }: LayoutProps) {
-  const location = useLocation();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { language, setLanguage } = useLanguage();
   const t = translations[language];
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const isActive = (path: string) => {
-    return location.pathname === path ? 'active' : '';
-  };
 
   useEffect(() => {
     if (isDarkMode) {
@@ -35,34 +29,14 @@ export default function Layout({ children, header }: LayoutProps) {
     setLanguage(language === 'EN' ? 'TH' : 'EN');
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <div className="fade-in">
       <div className="container">
-        <header>
-          <nav>
-            <button className="menu-toggle" onClick={toggleMenu}>
-              ☰
-            </button>
-            <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-              <Link to="/" className={isActive('/')} onClick={() => setIsMenuOpen(false)}>{t.home}</Link>
-              <Link to="/about" className={isActive('/about')} onClick={() => setIsMenuOpen(false)}>{t.about}</Link>
-              <Link to="#services" className={isActive('#services')} onClick={() => setIsMenuOpen(false)}>{t.services}</Link>
-              <Link to="#contact" className={isActive('#contact')} onClick={() => setIsMenuOpen(false)}>{t.contact}</Link>
-            </div>
-            <div className="nav-controls">
-              <button onClick={toggleDarkMode} aria-label="Toggle dark mode">
-                {isDarkMode ? '🌙' : '☀️'}
-              </button>
-              <button onClick={toggleLanguage} aria-label="Toggle language">
-                {language}
-              </button>
-            </div>
-          </nav>
-        </header>
+        <Header 
+          toggleDarkMode={toggleDarkMode} 
+          toggleLanguage={toggleLanguage} 
+          isDarkMode={isDarkMode}
+        />
         <main>
           {header}
           {children}
