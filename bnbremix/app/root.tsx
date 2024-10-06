@@ -5,14 +5,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: '/styles/global.css' },
-  { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lora&display=swap' },
-  { 
-    rel: 'preload', 
-    href: '/fonts/FuturaCondensedBold.otf', 
-    as: 'font', 
-    type: 'font/otf', 
-    crossOrigin: 'anonymous' 
-  },
+  { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lora&family=Do+Hyeon&display=swap' },
   { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
 ];
 

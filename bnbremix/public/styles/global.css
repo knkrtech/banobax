@@ -27,7 +27,7 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'FUTURA CONDENSED BOLD', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     letter-spacing: 1.2px;
     color: var(--primary-color);
     line-height: 1.2;
@@ -84,7 +84,7 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--primary-color);
-    font-family: 'FUTURA CONDENSED BOLD', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     letter-spacing: 1px;
     position: relative;
     transition: color 0.3s ease;
@@ -363,7 +363,7 @@ body.dark-mode {
 }
 
 .site-title {
-    font-family: 'FUTURA CONDENSED BOLD', sans-serif;
+    font-family: 'Do Hyeon', sans-serif;
     font-size: 3.5rem;
     color: var(--primary-color);
     text-align: left;
@@ -436,7 +436,7 @@ body.dark-mode .light-logo {
     display: none;
 }
 
-body.dark-mode .dark-logo {
+body.dark.mode .dark-logo {
     display: block;
 }
 
