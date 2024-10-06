@@ -412,3 +412,45 @@ p {
         word-break: break-word;
     }
 }
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 150px; /* Adjust this value as needed */
+    height: auto;
+}
+
+.light-logo {
+    display: block;
+}
+
+.dark-logo {
+    display: none;
+}
+
+body.dark-mode .light-logo {
+    display: none;
+}
+
+body.dark-mode .dark-logo {
+    display: block;
+}
+
+.content-container {
+    max-width: 800px; /* Adjust this value as needed */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ensure the Layout component allows for full-width header */
+.layout-container {
+    width: 100%;
+}
+
+.layout-header {
+    width: 100%;
+}

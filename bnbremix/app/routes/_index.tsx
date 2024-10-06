@@ -21,19 +21,34 @@ export default function Index() {
     return <LoadingScreen />;
   }
 
-  const homeHeader = <h1 className="site-title">BANOBA</h1>;
+  const homeHeader = (
+    <div className="logo-container">
+      <img
+        src="/images/banoba-logo-light.png"
+        alt="BANOBA"
+        className="logo light-logo"
+      />
+      <img
+        src="/images/banoba-logo-dark.png"
+        alt="BANOBA"
+        className="logo dark-logo"
+      />
+    </div>
+  );
 
   return (
     <Layout header={homeHeader}>
-      <p className="subtitle">{t.subtitle}</p>
-      <p>{t.description}</p>
-      <p>{t.servicesList}</p>
-      <div className="social-links">
-        <a href="https://www.linkedin.com/company/banoba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://www.instagram.com/banoba_sustainability" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://twitter.com/banoba_sustain" target="_blank" rel="noopener noreferrer">X</a>
+      <div className="content-container">
+        <p className="subtitle">{t.subtitle}</p>
+        <p>{t.description}</p>
+        <p>{t.servicesList}</p>
+        <div className="social-links">
+          <a href="https://www.linkedin.com/company/banoba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.instagram.com/banoba_sustainability" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://twitter.com/banoba_sustain" target="_blank" rel="noopener noreferrer">X</a>
+        </div>
+        <p>{t.reachUs} <a href="mailto:info@banoba.com">info@banoba.com</a></p>
       </div>
-      <p>{t.reachUs} <a href="mailto:info@banoba.com">info@banoba.com</a></p>
     </Layout>
   );
 }

@@ -13,6 +13,7 @@ export const links: LinksFunction = () => [
     type: 'font/otf', 
     crossOrigin: 'anonymous' 
   },
+  { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
 ];
 
 export default function App() {
