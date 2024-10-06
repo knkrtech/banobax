@@ -23,6 +23,7 @@ export default function Layout({ children, header }: LayoutProps) {
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle('dark-mode');
   };
 
   const toggleLanguage = () => {

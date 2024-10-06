@@ -128,9 +128,13 @@ nav {
 
 .menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
 }
 
-/* Desktop-specific styles */
 @media (min-width: 769px) {
     nav {
         flex-direction: row;
@@ -259,6 +263,10 @@ body.dark-mode {
     .nav-controls {
         order: 2;
         margin-left: auto;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
     }
 }
 
@@ -453,4 +461,59 @@ body.dark-mode .dark-logo {
 
 .layout-header {
     width: 100%;
+}
+
+/* Burger menu icon */
+.burger {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--primary-color);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger span:nth-child(1) {
+    top: 0px;
+}
+
+.burger span:nth-child(2), .burger span:nth-child(3) {
+    top: 10px;
+}
+
+.burger span:nth-child(4) {
+    top: 20px;
+}
+
+.burger.open span:nth-child(1) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
+}
+
+.burger.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.burger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.burger.open span:nth-child(4) {
+    top: 10px;
+    width: 0%;
+    left: 50%;
 }

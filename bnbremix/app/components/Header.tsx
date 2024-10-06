@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from '@remix-run/react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
@@ -11,11 +12,24 @@ interface HeaderProps {
 export default function Header({ toggleDarkMode, toggleLanguage, isDarkMode }: HeaderProps) {
   const { language } = useLanguage();
   const t = translations[language];
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header>
       <nav>
-        <div className="nav-links">
+        <button className="menu-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
+          <div className={`burger ${isMenuOpen ? 'open' : ''}`}>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
           <Link to="/">{t.home}</Link>
           <Link to="/expertise">{t.expertise}</Link>
           <Link to="/about">{t.about}</Link>
