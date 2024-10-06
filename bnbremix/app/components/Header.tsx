@@ -33,7 +33,7 @@ export default function Header({ toggleDarkMode, toggleLanguage, isDarkMode }: H
           <Link to="/">{t.home}</Link>
           <Link to="/expertise">{t.expertise}</Link>
           <Link to="/about">{t.about}</Link>
-          <Link to="/ventures">{t.ventures}</Link>
+          <Link to="/insights">{t.insights}</Link>
           <Link to="/contact">{t.contact}</Link>
         </div>
         <div className="nav-controls">
