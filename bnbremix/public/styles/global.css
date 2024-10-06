@@ -436,7 +436,7 @@ body.dark-mode .light-logo {
     display: none;
 }
 
-body.dark.mode .dark-logo {
+body.dark-mode .dark-logo {
     display: block;
 }
 
