@@ -21,21 +21,24 @@ export default function Header({ toggleDarkMode, toggleLanguage, isDarkMode }: H
   return (
     <header>
       <nav>
-        <button className="menu-toggle" aria-label="Toggle menu" onClick={toggleMenu}>
-          <div className={`burger ${isMenuOpen ? 'open' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </button>
-        <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-          <Link to="/">{t.home}</Link>
-          <Link to="/expertise">{t.expertise}</Link>
-          <Link to="/about">{t.about}</Link>
-          <Link to="/insights">{t.insights}</Link>
-          <Link to="/contact">{t.contact}</Link>
-        </div>
+        <Link to="/" className="logo">
+          <img
+            src="/images/banoba-logo-light.png"
+            alt="BANOBA"
+            className="logo light-logo"
+          />
+          <img
+            src="/images/banoba-logo-dark.png"
+            alt="BANOBA"
+            className="logo dark-logo"
+          />
+        </Link>
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <li><Link to="/expertise">{t.expertise}</Link></li>
+          <li><Link to="/about">{t.about}</Link></li>
+          <li><Link to="/insights">{t.insights}</Link></li>
+          <li><Link to="/contact">{t.contact}</Link></li>
+        </ul>
         <div className="nav-controls">
           <button onClick={toggleDarkMode} aria-label="Toggle dark mode">
             {isDarkMode ? '🌱' : '☀️'}

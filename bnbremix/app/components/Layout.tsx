@@ -38,10 +38,7 @@ export default function Layout({ children, header }: LayoutProps) {
           toggleLanguage={toggleLanguage} 
           isDarkMode={isDarkMode}
         />
-        <main>
-          {header}
-          {children}
-        </main>
+        {children}
         <footer>
           <p>{t.footerText} 🌱</p>
           <p>&copy; 2024 BANOBA. {t.rights}</p>
