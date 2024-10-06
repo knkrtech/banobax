@@ -44,6 +44,7 @@ h2 {
 }
 
 .subtitle {
+    font-family: 'Lora', serif;
     font-style: italic;
     margin-bottom: 40px;
     color: var(--secondary-color);
