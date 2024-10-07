@@ -33,7 +33,7 @@ export default function Header({ toggleDarkMode, toggleLanguage, isDarkMode }: H
             className="logo dark-logo"
           />
         </Link>
-        <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`nav-links ${isMenuOpen ? 'active' : ''} ${language === 'TH' ? 'thai-nav' : ''}`}>
           <li><Link to="/expertise">{t.expertise}</Link></li>
           <li><Link to="/about">{t.about}</Link></li>
           <li><Link to="/insights">{t.insights}</Link></li>

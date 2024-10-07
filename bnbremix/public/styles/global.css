@@ -445,7 +445,7 @@ body.dark-mode .light-logo {
     display: none;
 }
 
-body.dark-mode .dark-logo {
+body.dark.mode .dark-logo {
     display: block;
 }
 
@@ -517,4 +517,24 @@ body.dark-mode .dark-logo {
     top: 10px;
     width: 0%;
     left: 50%;
+}
+
+/* Thai language support */
+.thai-nav {
+  font-size: 0.9rem;
+}
+
+.thai-nav a {
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .thai-nav {
+    font-size: 0.8rem;
+  }
+
+  .thai-nav a {
+    white-space: normal;
+    text-align: center;
+  }
 }
