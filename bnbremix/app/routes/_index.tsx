@@ -31,11 +31,11 @@ export default function Index() {
         </section>
         <section className="social-links">
           <a href="https://www.linkedin.com/company/banoba" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://www.instagram.com/banoba_sustainability" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://twitter.com/banoba_sustain" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://www.instagram.com/banobaco" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://twitter.com/banobaco" target="_blank" rel="noopener noreferrer">X</a>
         </section>
         <section className="contact">
-          <p>{t.reachUs} <a href="mailto:info@banoba.com">info@banoba.com</a></p>
+          <p>{t.reachUs} <a href="mailto:hello@banoba.co">hello@banoba.com</a></p>
         </section>
       </main>
     </Layout>

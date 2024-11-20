@@ -21,6 +21,14 @@ export default function Header({ toggleDarkMode, toggleLanguage, isDarkMode }: H
   return (
     <header>
       <nav>
+        <button 
+          className="menu-toggle" 
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          type="button"
+        >
+          {isMenuOpen ? '✕' : '☰'}
+        </button>
         <Link to="/" className="logo">
           <img
             src="/images/banoba-logo-light.png"
